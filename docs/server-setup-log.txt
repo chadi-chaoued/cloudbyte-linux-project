@@ -1,0 +1,98 @@
+
+CLOUDBYTE LINUX SERVER - SETUP AND PERMISSIONS LOG
+Date: November 23, 2026
+Prepared by: CloudByte System Administrator
+
+1. GROUPS CREATED
+
+The following Linux groups were created:
+
+- engineering (GID 1001)
+- marketing (GID 1002)
+- operations (GID 1003)
+- admins (GID 1004)
+
+2. USERS CREATED
+
+A total of 12 users were created and assigned to their departments.
+
+Engineering:
+- alice
+- bob
+- carol
+- dave
+
+Marketing:
+- emma
+- frank
+- grace
+
+Operations:
+- henry
+- iris
+- jack
+- kate
+- leo
+
+Additional group memberships:
+- kate is a member of operations and admins.
+- leo is a member of operations and admins.
+
+3. DIRECTORY STRUCTURE AND PERMISSIONS
+
+The following directories were created and configured:
+
+/shared/engineering
+  Owner: root
+  Group: engineering
+  Permissions: 770 (rwxrwx---)
+
+/shared/marketing
+  Owner: root
+  Group: marketing
+  Permissions: 770 (rwxrwx---)
+
+/shared/operations
+  Owner: root
+  Group: operations
+  Permissions: 770 (rwxrwx---)
+
+/shared/company-docs
+  Owner: root
+  Group: admins
+  Permissions: 775 (rwxrwxr-x)
+
+/logs/reports
+  Owner: root
+  Group: admins
+  Permissions: 775 (rwxrwxr-x)
+
+4. PERMISSION TESTS
+
+The permissions were tested by switching between the different user accounts.
+
+- Alice successfully created a file in /shared/engineering.
+- Emma successfully created a file in /shared/marketing.
+- Henry successfully created a file in /shared/operations.
+- Kate successfully created a file in /shared/operations.
+- Kate successfully created and read a file in /shared/company-docs.
+
+Access restrictions were also verified:
+
+- Alice could not access /shared/marketing.
+- Emma could not access /shared/engineering.
+- Henry could not access /shared/engineering.
+- Alice could read the company document but could not modify it.
+
+5. NOTES AND OBSERVATIONS
+
+The permission tests behaved as expected.
+
+Users could access their department directories according to their group memberships. Users without the appropriate group membership received "Permission denied" when attempting to access restricted directories.
+
+The admins group allowed Kate and Leo to access the shared company documentation directory.
+
+The tests confirmed that the directory ownership and permissions were configured correctly.
+
+END OF LOG
+
